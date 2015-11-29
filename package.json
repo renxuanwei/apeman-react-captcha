@@ -1,0 +1,59 @@
+{
+  "name": "apeman-react-captcha",
+  "version": "1.0.0",
+  "description": "apeman react package for captcha component.",
+  "main": "lib",
+  "scripts": {
+    "test": "./ci/test.js"
+  },
+  "repository": "apeman-react-labo/apeman-react-captcha",
+  "keywords": [
+    "React",
+    "apeman",
+    "react-component"
+  ],
+  "author": {
+    "email": "okunishitaka.com@gmail.com",
+    "name": "okunishinishi",
+    "url": "http://okunishitaka.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apeman-react-labo/apeman-react-captcha/issues"
+  },
+  "homepage": "https://github.com/apeman-react-labo/apeman-react-captcha#readme",
+  "dependencies": {
+    "apeman-react-style": "^2.1.4",
+    "argx": "^1.3.1",
+    "async": "^1.5.0",
+    "classnames": "^2.2.1",
+    "extend": "^3.0.0"
+  },
+  "devDependencies": {
+    "ape-compiling": "^3.1.0",
+    "ape-covering": "^2.0.0",
+    "ape-deploying": "^2.0.0",
+    "ape-highlighting": "^2.0.1",
+    "ape-releasing": "^2.0.0",
+    "ape-reporting": "^2.0.3",
+    "ape-tasking": "^2.0.0",
+    "ape-testing": "^2.0.0",
+    "ape-tmpl": "^2.0.5",
+    "ape-updating": "^2.0.0",
+    "ape-watching": "^2.0.0",
+    "apeman-asset-stylesheets": "^1.0.5",
+    "apeman-react-basic": "^2.10.0",
+    "apeman-react-theme": "^1.0.5",
+    "babel-preset-react": "^6.1.18",
+    "coz": "^3.1.6",
+    "expandglob": "^1.0.1",
+    "injectmock": "^1.1.3",
+    "mkdirp": "^0.5.1",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "sharegit": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  }
+}

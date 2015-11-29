@@ -1,0 +1,36 @@
+Components
+-----
+
+### ApCaptcha
+
+**Props**
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+
+
+### ApCaptchaSvg
+
+SVG captcha.
+
+DO NOT use svg base captcha in production, since it may be parsable by bots.
+You need to convert to bitmap like png beforehand.
+
+**Props**
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| version | string | '1.1' | SVG version |
+| text | string| null | Text to render |
+
+
+
+### ApCaptchaStyle
+
+**Props**
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| scoped | bool | false | Render as scoped style. |
+| style | object | {} | Style object. |
+
