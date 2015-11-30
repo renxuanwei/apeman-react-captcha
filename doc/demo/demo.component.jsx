@@ -17,8 +17,7 @@ let Demo = React.createClass({
             <div>
                 <ApCaptcha src={state.captchaSrc}
                            refreshText="refresh"
-                           onRefresh={s.refreshCaptcha}>
-                </ApCaptcha>
+                           onRefresh={s.refreshCaptcha} />
             </div>
         );
     },

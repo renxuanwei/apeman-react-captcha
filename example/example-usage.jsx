@@ -13,17 +13,21 @@ let ExampleComponent = React.createClass({
         }
     },
     render: function () {
+        let s = this,
+            state = s.state;
         return (
             <div>
                 <ApCaptchaStyle scoped></ApCaptchaStyle>
-                <ApCaptcha></ApCaptcha>
+                <ApCaptcha src={state.captchaSrc}
+                           refreshText="refresh"
+                           onRefresh={s.refreshCaptcha} />
             </div>
         )
     },
     refreshCaptcha: function () {
         let s = this;
         let time = new Date().getTime();
-        console.log('refreshCaptcha', time);
+        console.log('refreshCaptcha:', time);
         s.setState({
             captchaSrc: `./images/mock-captcha.svg?t=${time}`
         })
