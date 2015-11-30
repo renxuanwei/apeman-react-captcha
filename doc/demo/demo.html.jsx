@@ -12,6 +12,7 @@ const Demo = require('./demo.component.js'),
     ApCaptchaStyle = require('../../lib/ap_captcha_style'),
     ApThemeStyle = require('apeman-react-theme')['ApThemeStyle'],
     basic = require('apeman-react-basic'),
+    ApFaIconStyle = basic.ApFaIconStyle,
     ApStyle = basic.ApStyle,
     ApHead = basic.ApHead,
     ApBody = basic.ApBody,
@@ -27,6 +28,7 @@ module.exports = (
                 version={pkg.version}
                 icon={FAVICON_URL}>
             <ApStyle data={fs.readFileSync(stylesheets.reactDemo).toString()}></ApStyle>
+            <ApFaIconStyle></ApFaIconStyle>
             <ApThemeStyle primaryColor="#b35600"></ApThemeStyle>
             <ApCaptchaStyle></ApCaptchaStyle>
         </ApHead>

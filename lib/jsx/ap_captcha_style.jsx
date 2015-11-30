@@ -26,10 +26,24 @@ let ApCaptchaStyle = React.createClass({
         let s = this,
             props = s.props;
         let data = {
-            '.ap-captcha':{
-
-            }
-        },
+                '.ap-captcha': {
+                    display: `inline-block`
+                },
+                '.ap-captcha-image': {
+                    background: `white`,
+                    border: `1px solid #F0F0F0`
+                },
+                '.ap-captcha-refresh-button': {
+                    display: `block`,
+                    textAlign: `right`,
+                    cursor: `pointer`,
+                    padding: `4px 2px`,
+                    fontSize: `12px`
+                },
+                '.ap-captcha-refresh-button:active': {
+                    opacity: 0.8
+                }
+            },
             smallMediaData = {},
             mediumMediaData = {},
             largeMediaData = {};

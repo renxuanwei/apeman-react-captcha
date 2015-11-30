@@ -13,6 +13,7 @@ module.exports = apeTmpl.indexJsBud({
     dirname: __dirname,
     subclasses: [
         'ApCaptcha',
+        'ApCaptchaSvg',
         'ApCaptchaStyle'
     ]
 });

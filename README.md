@@ -69,9 +69,7 @@ Demo
 
 [Live demo][demo_url] is hosted on GitHub Pages.
 
-<!--
 [![Demo Image](./doc/images/screenshot.png)][demo_url]
--->
 
 [demo_url]: http://apeman-react-labo.github.io/apeman-react-captcha/demo/demo.html
 
@@ -122,6 +120,26 @@ Components
 
 | Name | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
+| src | string | null | Captcha image url |
+| onRefresh | function | null | Handle image refresh |
+| refreshIcon | string | "fa fa-refresh" | Refresh icon class |
+| refreshText | string | "" | Refresh text |
+
+
+
+### ApCaptchaSvg
+
+SVG captcha.
+
+DO NOT use svg base captcha in production, since it may be parsable by bots.
+You need to convert to bitmap like png beforehand.
+
+**Props**
+
+| Name | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| version | string | '1.1' | SVG version |
+| text | string| null | Text to render |
 
 
 
