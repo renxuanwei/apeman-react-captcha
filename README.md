@@ -86,9 +86,7 @@ Usage
 "use strict";
 
 import React from 'react';
-import {ApCaptcha, ApCaptchaStyle} from 'apeman-react-captcha'
-)
-;
+import {ApCaptcha, ApCaptchaStyle} from 'apeman-react-captcha';
 
 let ExampleComponent = React.createClass({
     getInitialState() {
