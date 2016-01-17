@@ -1,18 +1,17 @@
 "use strict";
 
-const React = require('react'),
-    apemanReactCaptcha = require('apeman-react-captcha');
-
-const ApCaptcha = apemanReactCaptcha.ApCaptcha,
-    ApCaptchaStyle = apemanReactCaptcha.ApCaptchaStyle;
+import React from 'react';
+import {ApCaptcha, ApCaptchaStyle} from 'apeman-react-captcha'
+)
+;
 
 let ExampleComponent = React.createClass({
-    getInitialState: function () {
+    getInitialState() {
         return {
             captchaSrc: "./captcha.svg"
         }
     },
-    render: function () {
+    render() {
         let s = this,
             state = s.state;
         return (
@@ -20,11 +19,11 @@ let ExampleComponent = React.createClass({
                 <ApCaptchaStyle scoped></ApCaptchaStyle>
                 <ApCaptcha src={state.captchaSrc}
                            refreshText="refresh"
-                           onRefresh={s.refreshCaptcha} />
+                           onRefresh={s.refreshCaptcha}/>
             </div>
         )
     },
-    refreshCaptcha: function () {
+    refreshCaptcha() {
         let s = this;
         let time = new Date().getTime();
         console.log('refreshCaptcha:', time);

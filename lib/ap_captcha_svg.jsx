@@ -7,11 +7,8 @@
 
 "use strict";
 
-const React = require('react'),
-    ReactDOM = require('react-dom'),
-    randomval = require('randomval'),
-    numcal = require('numcal'),
-    types = React.PropTypes;
+import React, {PropTypes as types} from 'react';
+import randomval from 'randomval';
 
 /** @lends ApCaptchaSvg */
 let ApCaptchaSvg = React.createClass({
@@ -27,7 +24,7 @@ let ApCaptchaSvg = React.createClass({
         height: types.number
     },
 
-    getDefaultProps: function () {
+    getDefaultProps() {
         return {
             version: '1.1',
             xmlns: 'http://www.w3.org/2000/svg',
@@ -37,7 +34,7 @@ let ApCaptchaSvg = React.createClass({
         };
     },
 
-    render: function () {
+    render() {
         let s = this,
             props = s.props;
 
@@ -97,7 +94,7 @@ let ApCaptchaSvg = React.createClass({
     // Specs
     //--------------------
 
-    _renderLetter: function (letter, rate, textProps) {
+    _renderLetter(letter, rate, textProps) {
         let s = this,
             props = s.props;
 
@@ -125,13 +122,13 @@ let ApCaptchaSvg = React.createClass({
         )
     },
 
-    _dummyLetter: function () {
+    _dummyLetter() {
         const letters = "1234567890abcdefg";
         let len = letters.length;
         return letters[randomval.randomInt(0, len - 1)];
     },
 
-    _stripeBlock: function (rate, color, blockProps) {
+    _stripeBlock(rate, color, blockProps) {
         let s = this,
             props = s.props;
 

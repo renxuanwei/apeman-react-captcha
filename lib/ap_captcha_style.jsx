@@ -5,10 +5,8 @@
 
 "use strict";
 
-const React = require('react'),
-    types = React.PropTypes,
-    extend = require('extend'),
-    ApStyle = require('apeman-react-style')['ApStyle'];
+import React, {PropTypes as types} from 'react';
+import {ApStyle} from 'apeman-react-style';
 
 /** @lends ApCaptchaStyle */
 let ApCaptchaStyle = React.createClass({
@@ -16,13 +14,13 @@ let ApCaptchaStyle = React.createClass({
         scoped: types.bool,
         style: types.object
     },
-    getDefaultProps: function () {
+    getDefaultProps() {
         return {
             scoped: false,
             style: {}
         }
     },
-    render: function () {
+    render() {
         let s = this,
             props = s.props;
         let data = {
@@ -49,7 +47,7 @@ let ApCaptchaStyle = React.createClass({
             largeMediaData = {};
         return (
             <ApStyle scoped={props.scoped}
-                     data={extend(data, props.style)}
+                     data={Object.assign(data, props.style)}
                      smallMediaData={smallMediaData}
                      mediumMediaData={mediumMediaData}
                      largeMediaData={largeMediaData}

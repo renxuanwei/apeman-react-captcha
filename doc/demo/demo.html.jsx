@@ -1,23 +1,16 @@
 "use strict";
 
-const React = require('react'),
-    pkg = require('../../package.json'),
-    links = require('../links.json'),
-    fs = require('fs'),
-    apeHighlighting = require('ape-highlighting'),
-    highlightJsx = apeHighlighting.highlightJsx,
-    stylesheets = require('apeman-asset-stylesheets');
+import React from 'react';
+import pkg from '../../package.json';
+import links from '../links.json';
+import fs from 'fs';
+import {highlightJsx} from 'ape-highlighting';
+import stylesheets from 'apeman-asset-stylesheets';
 
-const Demo = require('./demo.component.js'),
-    ApCaptchaStyle = require('../../lib/ap_captcha_style'),
-    ApThemeStyle = require('apeman-react-theme')['ApThemeStyle'],
-    basic = require('apeman-react-basic'),
-    ApFaIconStyle = basic.ApFaIconStyle,
-    ApStyle = basic.ApStyle,
-    ApHead = basic.ApHead,
-    ApBody = basic.ApBody,
-    ApLinks = basic.ApLinks,
-    ApHtml = basic.ApHtml;
+import Demo from './demo.component.js';
+import ApCaptchaStyle from '../../lib/ap_captcha_style';
+import {ApThemeStyle} from 'apeman-react-theme';
+import {ApFaIconStyle, ApStyle, ApHead, ApBody, ApLinks, ApHtml} from 'apeman-react-basic';
 
 const FAVICON_URL = "https://raw.githubusercontent.com/apeman-asset-labo/apeman-asset-images/master/dist/favicon/react-favicon.png";
 
@@ -33,40 +26,40 @@ module.exports = (
             <ApCaptchaStyle></ApCaptchaStyle>
         </ApHead>
         <ApBody>
-        <div id="demo-style"></div>
-        <header className="react-demo-header">
-            <div className="react-demo-container">
-                <h1>
-                    <a href={pkg.homepage}>{pkg.name}</a>
-                </h1>
-            </div>
-        </header>
-        <main>
-            <div>
-                <div className="react-demo-playground">
-                    <div className="react-demo-container">
-                        <div id="demo-wrap">
-                            <Demo></Demo>
+            <div id="demo-style"></div>
+            <header className="react-demo-header">
+                <div className="react-demo-container">
+                    <h1>
+                        <a href={pkg.homepage}>{pkg.name}</a>
+                    </h1>
+                </div>
+            </header>
+            <main>
+                <div>
+                    <div className="react-demo-playground">
+                        <div className="react-demo-container">
+                            <div id="demo-wrap">
+                                <Demo></Demo>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="react-demo-container">
-                <div>
+                <div className="react-demo-container">
+                    <div>
 <pre className="react-demo-src" dangerouslySetInnerHTML={
 {__html:highlightJsx.fromFile(require.resolve('./demo.component.jsx'))}
 }>
 </pre>
+                    </div>
                 </div>
-            </div>
 
-        </main>
-        <footer>
-            <div className="react-demo-container">
-                <ApLinks links={links}></ApLinks>
-            </div>
-        </footer>
-        <script src="./demo.js"></script>
+            </main>
+            <footer>
+                <div className="react-demo-container">
+                    <ApLinks links={links}></ApLinks>
+                </div>
+            </footer>
+            <script src="./demo.js"></script>
         </ApBody>
     </ApHtml>
 );

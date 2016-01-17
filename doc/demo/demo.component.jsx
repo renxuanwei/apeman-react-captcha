@@ -1,33 +1,34 @@
 "use strict";
 
-const React = require('react');
-
-const ApCaptcha = require('../../lib/ap_captcha');
+import React from 'react';
+import ApCaptcha from '../../lib/ap_captcha';
 
 let Demo = React.createClass({
-    getInitialState: function () {
+    getInitialState() {
         return {
             captchaSrc: "./images/mock-captcha.svg"
         }
     },
-    render: function () {
+    render() {
         let s = this,
             state = s.state;
         return (
             <div>
                 <ApCaptcha src={state.captchaSrc}
                            refreshText="refresh"
-                           onRefresh={s.refreshCaptcha} />
+                           onRefresh={s.refreshCaptcha}/>
             </div>
         );
     },
-    refreshCaptcha: function () {
+    refreshCaptcha() {
         let s = this;
         let time = new Date().getTime();
         console.log('refreshCaptcha', time);
-        s.setState({
-            captchaSrc: `./images/mock-captcha.svg?t=${time}`
-        })
+        setTimeout(() => {
+            s.setState({
+                captchaSrc: `./images/mock-captcha.svg?t=${time}`
+            });
+        }, 1000);
     }
 });
 

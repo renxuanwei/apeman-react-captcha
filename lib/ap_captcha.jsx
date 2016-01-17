@@ -5,13 +5,12 @@
 
 "use strict";
 
-const React = require('react'),
-    extend = require('extend'),
-    classnames = require('classnames'),
-    ApIcon = require('apeman-react-icon')['ApIcon'],
-    ApImage = require('apeman-react-image')['ApImage'],
-    ApTouchable = require('apeman-react-touchable')['ApTouchable'],
-    types = React.PropTypes;
+import React, {PropTypes as types} from 'react';
+import classnames from 'classnames';
+
+import {ApIcon} from 'apeman-react-icon';
+import {ApImage} from 'apeman-react-image';
+import {ApTouchable} from 'apeman-react-touchable';
 
 /** @lends ApCaptcha */
 let ApCaptcha = React.createClass({
@@ -33,33 +32,33 @@ let ApCaptcha = React.createClass({
 
     statics: {},
 
-    getInitialState: function () {
+    getInitialState() {
         return {};
     },
 
-    getDefaultProps: function () {
+    getDefaultProps() {
         return {
             src: null,
             onRefresh: null,
             refreshIcon: 'fa fa-refresh',
             refreshText: '',
             imageWidth: 240,
-            imageHeight: null
+            imageHeight: 94
         };
     },
 
-    render: function () {
+    render() {
         let s = this,
             props = s.props;
         return (
             <div className={classnames('ap-captcha', props.className)}
-                 style={extend({}, props.style)}>
+                 style={Object.assign({}, props.style)}>
                 <div>
                     <ApImage className="ap-captcha-image"
                              src={props.src}
                              width={props.imageWidth}
                              height={props.imageHeight}
-                    ></ApImage>
+                    />
                 </div>
                 <div>
                     <a className="ap-captcha-refresh-button">
@@ -80,32 +79,32 @@ let ApCaptcha = React.createClass({
     // Lifecycle
     //--------------------
 
-    componentWillMount: function () {
+    componentWillMount() {
         let s = this;
     },
 
-    componentDidMount: function () {
+    componentDidMount() {
         let s = this;
     },
 
-    componentWillReceiveProps: function (nextProps) {
+    componentWillReceiveProps(nextProps) {
         let s = this;
     },
 
-    shouldComponentUpdate: function (nextProps, nextState) {
+    shouldComponentUpdate(nextProps, nextState) {
         let s = this;
         return true;
     },
 
-    componentWillUpdate: function (nextProps, nextState) {
+    componentWillUpdate(nextProps, nextState) {
         let s = this;
     },
 
-    componentDidUpdate: function (prevProps, prevState) {
+    componentDidUpdate(prevProps, prevState) {
         let s = this;
     },
 
-    componentWillUnmount: function () {
+    componentWillUnmount() {
         let s = this;
     },
 
@@ -113,7 +112,7 @@ let ApCaptcha = React.createClass({
     // Helper
     //------------------
 
-    handleTap: function () {
+    handleTap() {
         let s = this,
             props = s.props;
         if (props.onRefresh) {

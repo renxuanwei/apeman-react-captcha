@@ -48,9 +48,9 @@ apeman react package for captcha component.
 <!-- Sections Start -->
 <a name="sections"></a>
 
-<!-- Section from "doc/readme/01.Installation.md.hbs" Start -->
+<!-- Section from "doc/guides/01.Installation.md.hbs" Start -->
 
-<a name="section-doc-readme-01-installation-md"></a>
+<a name="section-doc-guides-01-installation-md"></a>
 Installation
 -----
 
@@ -59,11 +59,11 @@ $ npm install apeman-react-captcha --save
 ```
 
 
-<!-- Section from "doc/readme/01.Installation.md.hbs" End -->
+<!-- Section from "doc/guides/01.Installation.md.hbs" End -->
 
-<!-- Section from "doc/readme/02.Demo.md.hbs" Start -->
+<!-- Section from "doc/guides/02.Demo.md.hbs" Start -->
 
-<a name="section-doc-readme-02-demo-md"></a>
+<a name="section-doc-guides-02-demo-md"></a>
 Demo
 -----
 
@@ -74,31 +74,47 @@ Demo
 [demo_url]: http://apeman-react-labo.github.io/apeman-react-captcha/demo/demo.html
 
 
-<!-- Section from "doc/readme/02.Demo.md.hbs" End -->
+<!-- Section from "doc/guides/02.Demo.md.hbs" End -->
 
-<!-- Section from "doc/readme/03.Usage.md.hbs" Start -->
+<!-- Section from "doc/guides/03.Usage.md.hbs" Start -->
 
-<a name="section-doc-readme-03-usage-md"></a>
+<a name="section-doc-guides-03-usage-md"></a>
 Usage
 ---------
 
 ```jsx
 "use strict";
 
-const React = require('react'),
-    apemanReactCaptcha = require('apeman-react-captcha');
-
-const ApCaptcha = apemanReactCaptcha.ApCaptcha,
-    ApCaptchaStyle = apemanReactCaptcha.ApCaptchaStyle;
+import React from 'react';
+import {ApCaptcha, ApCaptchaStyle} from 'apeman-react-captcha'
+)
+;
 
 let ExampleComponent = React.createClass({
-    render: function () {
+    getInitialState() {
+        return {
+            captchaSrc: "./captcha.svg"
+        }
+    },
+    render() {
+        let s = this,
+            state = s.state;
         return (
             <div>
                 <ApCaptchaStyle scoped></ApCaptchaStyle>
-                <ApCaptcha></ApCaptcha>
+                <ApCaptcha src={state.captchaSrc}
+                           refreshText="refresh"
+                           onRefresh={s.refreshCaptcha}/>
             </div>
         )
+    },
+    refreshCaptcha() {
+        let s = this;
+        let time = new Date().getTime();
+        console.log('refreshCaptcha:', time);
+        s.setState({
+            captchaSrc: `./images/mock-captcha.svg?t=${time}`
+        })
     }
 });
 
@@ -106,11 +122,11 @@ let ExampleComponent = React.createClass({
 
 
 
-<!-- Section from "doc/readme/03.Usage.md.hbs" End -->
+<!-- Section from "doc/guides/03.Usage.md.hbs" End -->
 
-<!-- Section from "doc/readme/04.Components.md.hbs" Start -->
+<!-- Section from "doc/guides/04.Components.md.hbs" Start -->
 
-<a name="section-doc-readme-04-components-md"></a>
+<a name="section-doc-guides-04-components-md"></a>
 Components
 -----
 
@@ -154,7 +170,7 @@ You need to convert to bitmap like png beforehand.
 
 
 
-<!-- Section from "doc/readme/04.Components.md.hbs" End -->
+<!-- Section from "doc/guides/04.Components.md.hbs" End -->
 
 
 <!-- Sections Start -->
