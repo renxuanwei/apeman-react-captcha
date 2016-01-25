@@ -16,6 +16,7 @@ let Demo = React.createClass({
             <div>
                 <ApCaptcha src={state.captchaSrc}
                            refreshText="refresh"
+                           spinning={state.spinning}
                            onRefresh={s.refreshCaptcha}/>
             </div>
         );
@@ -24,11 +25,16 @@ let Demo = React.createClass({
         let s = this;
         let time = new Date().getTime();
         console.log('refreshCaptcha', time);
+        s.setState({
+            spinning: true,
+            captchaSrc: null
+        });
         setTimeout(() => {
             s.setState({
-                captchaSrc: `./images/mock-captcha.svg?t=${time}`
+                captchaSrc: `./images/mock-captcha.svg?t=${time}`,
+                spinning: false
             });
-        }, 1000);
+        }, 1500);
     }
 });
 

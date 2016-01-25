@@ -10,6 +10,7 @@ import classnames from 'classnames';
 
 import {ApIcon} from 'apeman-react-icon';
 import {ApImage} from 'apeman-react-image';
+import {ApSpinner} from 'apeman-react-spinner';
 import {ApTouchable} from 'apeman-react-touchable';
 
 /** @lends ApCaptcha */
@@ -27,7 +28,9 @@ let ApCaptcha = React.createClass({
         imageWidth: types.number,
         imageHeight: types.number,
         onImageLoad: types.func,
-        onImageError: types.func
+        onImageError: types.func,
+        spinning: types.bool,
+        spinnerTheme: types.string
     },
 
     mixins: [],
@@ -47,7 +50,9 @@ let ApCaptcha = React.createClass({
             imageWidth: 240,
             imageHeight: 94,
             onImageLoad: null,
-            onImageError: null
+            onImageError: null,
+            spinning: false,
+            spinnerTheme: ApSpinner.DEFAULT_THEME
         };
     },
 
@@ -58,6 +63,10 @@ let ApCaptcha = React.createClass({
             <div className={classnames('ap-captcha', props.className)}
                  style={Object.assign({}, props.style)}>
                 <div>
+                    <ApSpinner className="ap-captcha-spinner"
+                               enabled={props.spinning}
+                               theme={props.spinnerTheme}
+                    />
                     <ApImage className="ap-captcha-image"
                              src={props.src}
                              width={props.imageWidth}
@@ -71,7 +80,9 @@ let ApCaptcha = React.createClass({
                     <a className="ap-captcha-refresh-button">
                         <ApTouchable onTap={s.handleTap}>
                     <span>
-                        <ApIcon className={classnames('ap-captcha-refresh-icon',props.refreshIcon)}/>
+                        <ApIcon className={classnames('ap-captcha-refresh-icon',props.refreshIcon, {
+                        'fa-spin': props.spinning
+                        })}/>
                         <span>{props.refreshText}</span>
                     </span>
                         </ApTouchable>
