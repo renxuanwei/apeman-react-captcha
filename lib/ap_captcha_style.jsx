@@ -34,7 +34,7 @@ let ApCaptchaStyle = React.createClass({
                 },
                 '.ap-captcha-image': {
                     background: `white`,
-                    border: `1px solid #F0F0F0`
+                    border: `1px solid #EEE`
                 },
                 '.ap-captcha-image .ap-image-spinner': {
                     background: `transparent`
