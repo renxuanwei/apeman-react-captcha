@@ -25,7 +25,8 @@ let ApCaptchaStyle = React.createClass({
             props = s.props;
         let data = {
                 '.ap-captcha': {
-                    display: `inline-block`
+                    display: `inline-block`,
+                    position: `relative`
                 },
                 '.ap-captcha-image': {
                     background: `white`,
@@ -35,8 +36,12 @@ let ApCaptchaStyle = React.createClass({
                     display: `block`,
                     textAlign: `right`,
                     cursor: `pointer`,
-                    padding: `4px 2px`,
-                    fontSize: `12px`
+                    padding: `4px 8px`,
+                    position:`absolute`,
+                    fontSize: `12px`,
+                    right:0,
+                    bottom:0,
+                    background:`rgba(255,255,255,0.9)`
                 },
                 '.ap-captcha-refresh-button:active': {
                     opacity: 0.8

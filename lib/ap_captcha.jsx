@@ -64,6 +64,7 @@ let ApCaptcha = React.createClass({
                              height={props.imageHeight}
                              onLoad={s.handleImageLoad}
                              onError={s.handleImageError}
+                             alt=""
                     />
                 </div>
                 <div>
@@ -129,7 +130,7 @@ let ApCaptcha = React.createClass({
     handleImageLoad(ev){
         let s = this,
             {props} = s;
-        if(props.onImageLoad){
+        if (props.onImageLoad) {
             props.onImageLoad(ev);
         }
     },
@@ -137,7 +138,7 @@ let ApCaptcha = React.createClass({
     handleImageError(err){
         let s = this,
             {props} = s;
-        if(props.onImageError){
+        if (props.onImageError) {
             props.onImageError(err);
         }
     }

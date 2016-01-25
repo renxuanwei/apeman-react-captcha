@@ -1743,7 +1743,8 @@ var ApCaptcha = _react2.default.createClass({
                     width: props.imageWidth,
                     height: props.imageHeight,
                     onLoad: s.handleImageLoad,
-                    onError: s.handleImageError
+                    onError: s.handleImageError,
+                    alt: ''
                 })
             ),
             _react2.default.createElement(
