@@ -25,7 +25,9 @@ let ApCaptcha = React.createClass({
         refreshIcon: types.string,
         refreshText: types.string,
         imageWidth: types.number,
-        imageHeight: types.number
+        imageHeight: types.number,
+        onImageLoad: types.func,
+        onImageError: types.func
     },
 
     mixins: [],
@@ -43,7 +45,9 @@ let ApCaptcha = React.createClass({
             refreshIcon: 'fa fa-refresh',
             refreshText: '',
             imageWidth: 240,
-            imageHeight: 94
+            imageHeight: 94,
+            onImageLoad: null,
+            onImageError: null
         };
     },
 
@@ -58,6 +62,8 @@ let ApCaptcha = React.createClass({
                              src={props.src}
                              width={props.imageWidth}
                              height={props.imageHeight}
+                             onLoad={s.handleImageLoad}
+                             onError={s.handleImageError}
                     />
                 </div>
                 <div>
@@ -109,14 +115,30 @@ let ApCaptcha = React.createClass({
     },
 
     //------------------
-    // Helper
+    // Custom
     //------------------
 
     handleTap() {
         let s = this,
-            props = s.props;
+            {props} = s;
         if (props.onRefresh) {
             props.onRefresh();
+        }
+    },
+
+    handleImageLoad(ev){
+        let s = this,
+            {props} = s;
+        if(props.onImageLoad){
+            props.onImageLoad(ev);
+        }
+    },
+
+    handleImageError(err){
+        let s = this,
+            {props} = s;
+        if(props.onImageError){
+            props.onImageError(err);
         }
     }
 

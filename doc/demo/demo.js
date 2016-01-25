@@ -1704,7 +1704,9 @@ var ApCaptcha = _react2.default.createClass({
         refreshIcon: _react.PropTypes.string,
         refreshText: _react.PropTypes.string,
         imageWidth: _react.PropTypes.number,
-        imageHeight: _react.PropTypes.number
+        imageHeight: _react.PropTypes.number,
+        onImageLoad: _react.PropTypes.func,
+        onImageError: _react.PropTypes.func
     },
 
     mixins: [],
@@ -1721,7 +1723,9 @@ var ApCaptcha = _react2.default.createClass({
             refreshIcon: 'fa fa-refresh',
             refreshText: '',
             imageWidth: 240,
-            imageHeight: 94
+            imageHeight: 94,
+            onImageLoad: null,
+            onImageError: null
         };
     },
     render: function render() {
@@ -1737,7 +1741,9 @@ var ApCaptcha = _react2.default.createClass({
                 _react2.default.createElement(_apemanReactImage.ApImage, { className: 'ap-captcha-image',
                     src: props.src,
                     width: props.imageWidth,
-                    height: props.imageHeight
+                    height: props.imageHeight,
+                    onLoad: s.handleImageLoad,
+                    onError: s.handleImageError
                 })
             ),
             _react2.default.createElement(
@@ -1793,14 +1799,31 @@ var ApCaptcha = _react2.default.createClass({
     },
 
     //------------------
-    // Helper
+    // Custom
     //------------------
 
     handleTap: function handleTap() {
-        var s = this,
-            props = s.props;
+        var s = this;
+        var props = s.props;
+
         if (props.onRefresh) {
             props.onRefresh();
+        }
+    },
+    handleImageLoad: function handleImageLoad(ev) {
+        var s = this;
+        var props = s.props;
+
+        if (props.onImageLoad) {
+            props.onImageLoad(ev);
+        }
+    },
+    handleImageError: function handleImageError(err) {
+        var s = this;
+        var props = s.props;
+
+        if (props.onImageError) {
+            props.onImageError(err);
         }
     }
 
