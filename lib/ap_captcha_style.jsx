@@ -28,13 +28,13 @@ let ApCaptchaStyle = React.createClass({
                     display: `block`,
                     position: `relative`,
                     background: `#FAFAFA`,
-                    padding: `4px`,
+                    padding: `8px`,
                     boxSizing: `border-box`,
                     textAlign: `center`
                 },
                 '.ap-captcha-image': {
                     background: `white`,
-                    border: `1px solid #EEE`
+                    border: `1px solid #E0E0E0`
                 },
                 '.ap-captcha-image .ap-image-spinner': {
                     background: `transparent`
