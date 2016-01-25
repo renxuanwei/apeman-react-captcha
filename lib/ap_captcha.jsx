@@ -20,8 +20,8 @@ let ApCaptcha = React.createClass({
     //--------------------
 
     propTypes: {
-        src: types.string.isRequired,
-        onRefresh: types.func.isRequired,
+        src: types.string,
+        onRefresh: types.func,
         refreshIcon: types.string,
         refreshText: types.string,
         imageWidth: types.number,

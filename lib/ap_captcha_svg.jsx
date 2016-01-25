@@ -82,6 +82,7 @@ let ApCaptchaSvg = React.createClass({
             <svg version={props.version}
                  width={width}
                  height={height}
+                 xmlns={props.xmlns}
                  viewBox={`0 0 ${width} ${height}`}
             >
                 <g>{backgrounds}</g>
