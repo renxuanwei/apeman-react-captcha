@@ -49,10 +49,10 @@ let ApCaptchaSvg = React.createClass({
             let rate = (i + 0.5) / len;
             return s._stripeBlock(rate, color, {
                 key: `bg-${i}`,
-                width: width / len + (margin * 2),
-                height: height + (margin * 2),
-                x: width * rate - margin,
-                y: 0 - margin
+                width: parseInt(width / len + (margin * 2)),
+                height: parseInt(height + (margin * 2)),
+                x: parseInt(width * rate - margin),
+                y: parseInt(0 - margin)
             });
         });
 
@@ -70,7 +70,7 @@ let ApCaptchaSvg = React.createClass({
                 } else {
                     return s._renderLetter(s._dummyLetter(), rate, {
                         key: key,
-                        fill: `rgba(255,255,255,${0.01 * Math.random()})`
+                        fill: `rgba(255,255,255,${0.01 * randomval.randomInt(0,30)})`
                     });
                 }
             });
@@ -114,10 +114,10 @@ let ApCaptchaSvg = React.createClass({
             rotate = randomval.randomInt(-rotateRange, rotateRange);
 
         return (
-            <text x={x}
-                  y={y}
-                  fontSize={fontSize}
-                  transform={`translate(${move()}, ${move()}) rotate(${rotate}, ${x}, ${y})`}
+            <text x={parseInt(x)}
+                  y={parseInt(y)}
+                  fontSize={parseInt(fontSize)}
+                  transform={`translate(${move()}, ${move()}) rotate(${parseInt(rotate)}, ${parseInt(x)}, ${parseInt(y)})`}
                 {...textProps}
             >{letter}</text>
         )
@@ -145,11 +145,11 @@ let ApCaptchaSvg = React.createClass({
 
         for (let x = left; x < right; x += lineWidth * 6) {
             lines.push(
-                <line x1={x}
-                      y1={0}
-                      x2={x}
-                      y2={h}
-                      lineWidth={lineWidth}
+                <line x1={parseInt(x)}
+                      y1={parseInt(0)}
+                      x2={parseInt(x)}
+                      y2={parseInt(h)}
+                      lineWidth={parseInt(lineWidth)}
                       key={`line-${x}`}
                       stroke={color}
                 />
@@ -158,7 +158,7 @@ let ApCaptchaSvg = React.createClass({
 
         return (
             <svg {...blockProps}>
-                <g transform={`scale(1.3) rotate(${rotate}, ${blockProps.width / 2}, ${blockProps.height / 2})`}>
+                <g transform={`scale(1.3) rotate(${parseInt(rotate)}, ${parseInt(blockProps.width / 2)}, ${parseInt(blockProps.height / 2)})`}>
                     {lines}
                 </g>
             </svg>
