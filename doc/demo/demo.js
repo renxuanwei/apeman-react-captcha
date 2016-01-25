@@ -1699,8 +1699,8 @@ var ApCaptcha = _react2.default.createClass({
     //--------------------
 
     propTypes: {
-        src: _react.PropTypes.string.isRequired,
-        onRefresh: _react.PropTypes.func.isRequired,
+        src: _react.PropTypes.string,
+        onRefresh: _react.PropTypes.func,
         refreshIcon: _react.PropTypes.string,
         refreshText: _react.PropTypes.string,
         imageWidth: _react.PropTypes.number,
