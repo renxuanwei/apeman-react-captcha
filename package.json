@@ -55,6 +55,7 @@
     "babel-preset-react": "^6.5.0",
     "coz": "^4.0.4",
     "expandglob": "^2.0.0",
+    "filecopy": "^1.0.8",
     "injectmock": "^1.1.3",
     "mkdirp": "^0.5.1",
     "react": "^15.0.1",

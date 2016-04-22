@@ -1,7 +1,6 @@
 'use strict'
 
-const ReactDomServer = require('react-dom/server'),
-  fs = require('fs')
+const ReactDomServer = require('react-dom/server')
 
 module.exports = {
   force: true,
