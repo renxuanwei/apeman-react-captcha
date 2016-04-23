@@ -5,7 +5,7 @@ const ReactDomServer = require('react-dom/server')
 module.exports = {
   force: true,
   mode: '444',
-  tmpl: function (data) {
+  tmpl (data) {
     return ReactDomServer.renderToStaticMarkup(data.component)
   },
   data: {

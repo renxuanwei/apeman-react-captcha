@@ -63,7 +63,7 @@ let ApCaptcha = React.createClass({
     let { props } = s
     return (
       <div className={ classnames('ap-captcha', props.className)}
-           style={Object.assign({}, props.style)}>
+           style={Object.assign({}, props.style) }>
         <div>
           <ApSpinner className="ap-captcha-spinner"
                      enabled={ props.spinning }
@@ -124,7 +124,7 @@ let ApCaptcha = React.createClass({
   },
 
   componentWillUnmount () {
-    let s = false
+    const s = this
   },
 
   // ------------------

@@ -21,7 +21,7 @@ module.exports = (
             version={ pkg.version }
             js={ [ 'demo.external.cc.js', 'demo.js' ] }
             icon={ FAVICON_URL }>
-      <ApStyle data={fs.readFileSync(stylesheets.reactDemo).toString()}></ApStyle>
+      <ApStyle data={fs.readFileSync(stylesheets.reactDemo).toString() }></ApStyle>
       <ApFaIconStyle></ApFaIconStyle>
       <ApThemeStyle primaryColor="#b35600"></ApThemeStyle>
       <ApCaptchaStyle></ApCaptchaStyle>
