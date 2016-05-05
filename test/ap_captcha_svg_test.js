@@ -4,7 +4,7 @@
  */
 'use strict'
 
-const ApCaptchaSvg = require('../lib/ap_captcha_svg.js')
+const ApCaptchaSvg = require('../lib/ap_captcha_svg.js').default
 const React = require('react')
 const ReactDOM = require('react-dom/server')
 const mkdirp = require('mkdirp')

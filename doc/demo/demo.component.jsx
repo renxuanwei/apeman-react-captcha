@@ -2,22 +2,30 @@
 
 import React from 'react'
 import ApCaptcha from '../../lib/ap_captcha'
+import {ApButtonStyle} from 'apeman-react-button'
+import {ApImageStyle} from 'apeman-react-image'
+import {ApSpinnerStyle} from 'apeman-react-spinner'
+import ApCaptchaStyle from '../../lib/ap_captcha_style'
 
-let Demo = React.createClass({
+const Demo = React.createClass({
   getInitialState () {
     return {
       captchaSrc: "./images/mock-captcha.svg"
     }
   },
   render () {
-    const s = this,
-      state = s.state;
+    const s = this
+    let { state } = s
     return (
       <div>
-        <ApCaptcha src={state.captchaSrc}
+        <ApSpinnerStyle highlightColor="#b35600"/>
+        <ApButtonStyle highlightColor="#b35600"/>
+        <ApImageStyle />
+        <ApCaptchaStyle />
+        <ApCaptcha src={ state.captchaSrc }
                    refreshText="refresh"
-                   spinning={state.spinning}
-                   onRefresh={s.refreshCaptcha}/>
+                   spinning={ state.spinning }
+                   onRefresh={ s.refreshCaptcha }/>
       </div>
     )
   },
@@ -38,4 +46,4 @@ let Demo = React.createClass({
   }
 })
 
-module.exports = Demo;
+export default Demo

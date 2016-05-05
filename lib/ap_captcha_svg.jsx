@@ -2,7 +2,7 @@
  * SVG captcha.
  * DO NOT use svg base captcha in production, since it may be parsable by bots.
  * You need to convert to bitmap like png beforehand.
- * @constructor ApCaptchaSvg
+ * @class ApCaptchaSvg
  */
 
 'use strict'
@@ -157,10 +157,9 @@ const ApCaptchaSvg = React.createClass({
     }
 
     return (
-      <svg {...blockProps}>
-        <g
-          transform={`scale(1.3) rotate(${parseInt(rotate)}, ${parseInt(blockProps.width / 2)}, ${parseInt(blockProps.height / 2)})`}>
-          {lines}
+      <svg { ...blockProps }>
+        <g transform={`scale(1.3) rotate(${parseInt(rotate)}, ${parseInt(blockProps.width / 2)}, ${parseInt(blockProps.height / 2)})`}>
+          { lines }
         </g>
       </svg>
     )
@@ -168,4 +167,4 @@ const ApCaptchaSvg = React.createClass({
 
 })
 
-module.exports = ApCaptchaSvg
+export default ApCaptchaSvg

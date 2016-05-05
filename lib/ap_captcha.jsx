@@ -1,6 +1,6 @@
 /**
- * apeman react package for captcha component.
- * @constructor ApCaptcha
+ * Captcha component.
+ * @class ApCaptcha
  */
 
 'use strict'
@@ -14,7 +14,7 @@ import {ApSpinner} from 'apeman-react-spinner'
 import {ApTouchable} from 'apeman-react-touchable'
 
 /** @lends ApCaptcha */
-let ApCaptcha = React.createClass({
+const ApCaptcha = React.createClass({
 
   // --------------------
   // Specs
@@ -160,4 +160,4 @@ let ApCaptcha = React.createClass({
   // ------------------
 })
 
-module.exports = ApCaptcha
+export default ApCaptcha

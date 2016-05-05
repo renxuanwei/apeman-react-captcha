@@ -14,7 +14,7 @@ const ExampleComponent = React.createClass({
     let { state } = s
     return (
       <div>
-        <ApCaptchaStyle scoped/>
+        <ApCaptchaStyle />
         <ApCaptcha src={ state.captchaSrc }
                    refreshText="refresh"
                    onRefresh={ s.refreshCaptcha }/>

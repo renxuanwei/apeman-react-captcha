@@ -1,6 +1,6 @@
 /**
  * Style for ApCaptcha.
- * @constructor ApCaptchaStyle
+ * @class ApCaptchaStyle
  */
 
 'use strict'
@@ -11,12 +11,10 @@ import {ApStyle} from 'apeman-react-style'
 /** @lends ApCaptchaStyle */
 const ApCaptchaStyle = React.createClass({
   propTypes: {
-    scoped: types.bool,
     style: types.object
   },
   getDefaultProps () {
     return {
-      scoped: false,
       style: {}
     }
   },
@@ -68,14 +66,14 @@ const ApCaptchaStyle = React.createClass({
     let mediumMediaData = {}
     let largeMediaData = {}
     return (
-      <ApStyle scoped={ props.scoped }
-               data={ Object.assign(data, props.style) }
-               smallMediaData={ smallMediaData }
-               mediumMediaData={ mediumMediaData }
-               largeMediaData={ largeMediaData }
+      <ApStyle
+        data={ Object.assign(data, props.style) }
+        smallMediaData={ smallMediaData }
+        mediumMediaData={ mediumMediaData }
+        largeMediaData={ largeMediaData }
       >{ props.children }</ApStyle>
     )
   }
 })
 
-module.exports = ApCaptchaStyle
+export default ApCaptchaStyle

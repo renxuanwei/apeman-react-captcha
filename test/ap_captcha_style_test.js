@@ -4,7 +4,7 @@
  */
 'use strict'
 
-const ApCaptchaStyle = require('../lib/ap_captcha_style.js')
+const ApCaptchaStyle = require('../lib/ap_captcha_style.js').default
 const React = require('react')
 const ReactDOM = require('react-dom/server')
 const assert = require('assert')
