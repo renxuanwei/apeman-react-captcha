@@ -32,8 +32,3 @@ tmp
 
 lib/*.js
 !lib/index.js
-
-doc/demo/demo.html
-doc/demo/demo.js
-doc/demo/demo.external.cc.js
-doc/demo/demo.component.js

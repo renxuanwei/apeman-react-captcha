@@ -4,7 +4,8 @@
   "description": "apeman react package for captcha component.",
   "main": "lib",
   "scripts": {
-    "test": "./ci/test.js"
+    "test": "./ci/test.js",
+    "prepublish": "./ci/compile.js && ./ci/build.js"
   },
   "repository": "apeman-react-labo/apeman-react-captcha",
   "keywords": [
@@ -24,18 +25,18 @@
   },
   "homepage": "https://github.com/apeman-react-labo/apeman-react-captcha#readme",
   "dependencies": {
-    "apeman-react-icon": "^2.1.0",
+    "apeman-react-icon": "^2.1.2",
     "apeman-react-image": "^3.0.10",
-    "apeman-react-spinner": "^3.0.5",
+    "apeman-react-spinner": "^3.0.6",
     "apeman-react-style": "^4.0.0",
-    "apeman-react-touchable": "^4.0.3",
+    "apeman-react-touchable": "^4.0.6",
     "classnames": "^2.2.5",
     "co": "^4.6.0",
     "numcal": "^3.0.0",
     "randomval": "^1.0.4"
   },
   "devDependencies": {
-    "ape-compiling": "^4.1.2",
+    "ape-compiling": "^4.2.0",
     "ape-covering": "^3.0.3",
     "ape-deploying": "^4.0.2",
     "ape-doc": "^2.0.0",
@@ -46,9 +47,9 @@
     "ape-tmpl": "^5.0.2",
     "ape-updating": "^3.0.2",
     "ape-watching": "^2.1.1",
-    "apeman-asset-javascripts": "^3.0.20",
-    "apeman-react-button": "^3.1.1",
-    "apeman-react-demo": "^1.0.14",
+    "apeman-asset-javascripts": "^3.1.0",
+    "apeman-react-button": "^3.1.2",
+    "apeman-react-demo": "^1.0.16",
     "coz": "^6.0.2",
     "filecopy": "^2.0.0",
     "injectmock": "^2.0.0",
