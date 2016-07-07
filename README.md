@@ -171,7 +171,6 @@ Components
 | spinnerTheme | string | ApSpinner.DEFAULT_THEME | |  |
 
 
-
 <!-- Section from "doc/guides/04.Components.md.hbs" End -->
 
 
