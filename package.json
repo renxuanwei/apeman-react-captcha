@@ -33,14 +33,14 @@
     "classnames": "^2.2.5",
     "co": "^4.6.0",
     "numcal": "^3.1.2",
-    "randomval": "^2.0.1"
+    "randomval": "^2.0.3"
   },
   "devDependencies": {
     "ababel": "^1.0.19",
-    "ababel-es2015": "^1.0.1",
-    "ababel-react": "^1.0.1",
+    "ababel-es2015": "^1.0.2",
+    "ababel-react": "^1.0.2",
     "abrowserify": "^1.0.14",
-    "amocha": "^1.0.7",
+    "amocha": "^1.0.8",
     "ape-capturing": "^1.0.4",
     "ape-deploying": "^5.0.4",
     "ape-doc": "^2.0.4",
