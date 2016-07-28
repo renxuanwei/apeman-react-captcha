@@ -153,7 +153,7 @@ Components
 | ---- | ---- | ------- | ----------- |
 | version |  | &#x27;1.1&#x27; | |  |
 | xmlns |  | &#x27;http://www.w3.org/2000/svg&#x27; | |  |
-| text |  | null | |  |
+| text |  | &#x27;&#x27; | |  |
 | width |  | 256 | |  |
 | height |  | 92 | |  |
 

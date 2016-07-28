@@ -28,7 +28,7 @@ const ApCaptchaSvg = React.createClass({
     return {
       version: '1.1',
       xmlns: 'http://www.w3.org/2000/svg',
-      text: null,
+      text: '',
       width: 256,
       height: 92
     }

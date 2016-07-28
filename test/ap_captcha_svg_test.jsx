@@ -18,7 +18,7 @@ describe('ap-captcha-svg', () => {
 
   it('Render a component', () => {
     let element = shallow(
-      <ApCaptchaSvg/>
+      <ApCaptchaSvg text='hoge'/>
     )
     assert.ok(element)
   })
