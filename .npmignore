@@ -11,7 +11,4 @@ build/Release
 node_modules
 .sass-cache
 .idea
-ci
-doc
-test
 tmp
