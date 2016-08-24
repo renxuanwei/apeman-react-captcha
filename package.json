@@ -1,6 +1,6 @@
 {
   "name": "apeman-react-captcha",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "apeman react package for captcha component.",
   "main": "shim/node",
   "scripts": {
