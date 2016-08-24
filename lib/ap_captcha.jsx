@@ -5,58 +5,22 @@
 
 'use strict'
 
-import React, {PropTypes as types} from 'react'
+import React, {Component, PropTypes as types} from 'react'
 import classnames from 'classnames'
 
 import {ApIcon} from 'apeman-react-icon'
 import {ApImage} from 'apeman-react-image'
 import {ApSpinner} from 'apeman-react-spinner'
 import {ApTouchable} from 'apeman-react-touchable'
+import {autobind} from 'breact'
 
 /** @lends ApCaptcha */
-const ApCaptcha = React.createClass({
-
-  // --------------------
-  // Specs
-  // --------------------
-
-  propTypes: {
-    /** Image source url */
-    src: types.string,
-    /** Handler for refresh */
-    onRefresh: types.func,
-    refreshIcon: types.string,
-    refreshText: types.string,
-    imageWidth: types.number,
-    imageHeight: types.number,
-    onImageLoad: types.func,
-    onImageError: types.func,
-    spinning: types.bool,
-    spinnerTheme: types.string
-  },
-
-  mixins: [],
-
-  statics: {},
-
-  getInitialState () {
-    return {}
-  },
-
-  getDefaultProps () {
-    return {
-      src: null,
-      onRefresh: null,
-      refreshIcon: 'fa fa-refresh',
-      refreshText: '',
-      imageWidth: 240,
-      imageHeight: 94,
-      onImageLoad: null,
-      onImageError: null,
-      spinning: false,
-      spinnerTheme: ApSpinner.DEFAULT_THEME
-    }
-  },
+class ApCaptcha extends Component {
+  constructor (props) {
+    super(props)
+    const s = this
+    autobind(s)
+  }
 
   render () {
     const s = this
@@ -82,8 +46,8 @@ const ApCaptcha = React.createClass({
           <a className="ap-captcha-refresh-button">
             <ApTouchable onTap={ s.handleTap }>
                     <span>
-                        <ApIcon className={ classnames('ap-captcha-refresh-icon',props.refreshIcon, {
-                        'fa-spin': props.spinning
+                        <ApIcon className={ classnames('ap-captcha-refresh-icon', props.refreshIcon, {
+                          'fa-spin': props.spinning
                         }) }/>
                         <span>{ props.refreshText }</span>
                     </span>
@@ -92,40 +56,7 @@ const ApCaptcha = React.createClass({
         </div>
       </div>
     )
-  },
-
-  // --------------------
-  // Lifecycle
-  // --------------------
-
-  componentWillMount () {
-    const s = this
-  },
-
-  componentDidMount () {
-    const s = this
-  },
-
-  componentWillReceiveProps (nextProps) {
-    const s = this
-  },
-
-  shouldComponentUpdate (nextProps, nextState) {
-    const s = this
-    return true
-  },
-
-  componentWillUpdate (nextProps, nextState) {
-    const s = this
-  },
-
-  componentDidUpdate (prevProps, prevState) {
-    const s = this
-  },
-
-  componentWillUnmount () {
-    const s = this
-  },
+  }
 
   // ------------------
   // Custom
@@ -137,7 +68,7 @@ const ApCaptcha = React.createClass({
     if (props.onRefresh) {
       props.onRefresh()
     }
-  },
+  }
 
   handleImageLoad (ev) {
     const s = this
@@ -145,7 +76,7 @@ const ApCaptcha = React.createClass({
     if (props.onImageLoad) {
       props.onImageLoad(ev)
     }
-  },
+  }
 
   handleImageError (err) {
     const s = this
@@ -154,10 +85,40 @@ const ApCaptcha = React.createClass({
       props.onImageError(err)
     }
   }
+}
 
-  // ------------------
-  // Private
-  // ------------------
+Object.assign(Component, {
+  // --------------------
+  // Specs
+  // --------------------
+  propTypes: {
+    /** Image source url */
+    src: types.string,
+    /** Handler for refresh */
+    onRefresh: types.func,
+    refreshIcon: types.string,
+    refreshText: types.string,
+    imageWidth: types.number,
+    imageHeight: types.number,
+    onImageLoad: types.func,
+    onImageError: types.func,
+    spinning: types.bool,
+    spinnerTheme: types.string
+  },
+
+  defaultProps: {
+    src: null,
+    onRefresh: null,
+    refreshIcon: 'fa fa-refresh',
+    refreshText: '',
+    imageWidth: 240,
+    imageHeight: 94,
+    onImageLoad: null,
+    onImageError: null,
+    spinning: false,
+    spinnerTheme: ApSpinner.DEFAULT_THEME
+  }
+
 })
 
 export default ApCaptcha

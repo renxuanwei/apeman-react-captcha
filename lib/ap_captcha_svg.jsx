@@ -7,49 +7,25 @@
 
 'use strict'
 
-import React, {PropTypes as types} from 'react'
+import React, {Component, PropTypes as types} from 'react'
 import randomval from 'randomval'
 
 /** @lends ApCaptchaSvg */
-const ApCaptchaSvg = React.createClass({
-
-  // --------------------
-  // Specs
-  // --------------------
-
-  propsTypes: {
-    version: types.string,
-    text: types.string.isRequired,
-    width: types.number,
-    height: types.number
-  },
-
-  getDefaultProps () {
-    return {
-      version: '1.1',
-      xmlns: 'http://www.w3.org/2000/svg',
-      text: '',
-      width: 256,
-      height: 92
-    }
-  },
-
+class ApCaptchaSvg extends Component {
   render () {
     const s = this
     let { props } = s
 
     let color = '#555'
 
-    let width = props.width
-    let height = props.height
+    let { width, height } = props
 
-    let backgrounds = [ 0, 1, 2, 3 ].map((val, i, arr)=> {
-      let len = arr.length
+    let backgrounds = [ 0, 1, 2, 3 ].map((val, i, { length }) => {
       let margin = width * 0.2
-      let rate = (i + 0.5) / len
+      let rate = (i + 0.5) / length
       return s._stripeBlock(rate, color, {
         key: `bg-${i}`,
-        width: parseInt(width / len + (margin * 2)),
+        width: parseInt(width / length + (margin * 2)),
         height: parseInt(height + (margin * 2)),
         x: parseInt(width * rate - margin),
         y: parseInt(0 - margin)
@@ -63,39 +39,39 @@ const ApCaptchaSvg = React.createClass({
         let rate = i / letters.length
         let key = `letter-${i}-${j}`
         if (j === real) {
-          return s._renderLetter(letter, rate, {
+          return s.renderLetter(letter, rate, {
             key: key,
             fill: color
           })
         } else {
-          return s._renderLetter(s._dummyLetter(), rate, {
+          return s.renderLetter(s._dummyLetter(), rate, {
             key: key,
             fill: `rgba(255,255,255,${0.01 * randomval.randomInt(0, 30)})`
           })
         }
       })
       return (
-        <g key={`letter-group-${i}`}>{texts}</g>
+        <g key={`letter-group-${i}`}>{ texts }</g>
       )
     })
     return (
-      <svg version={props.version}
-           width={width}
-           height={height}
-           xmlns={props.xmlns}
+      <svg version={ props.version }
+           width={ width }
+           height={ height }
+           xmlns={ props.xmlns }
            viewBox={`0 0 ${width} ${height}`}
       >
         <g>{backgrounds}</g>
         <g>{texts}</g>
       </svg>
     )
-  },
+  }
 
   // --------------------
   // Specs
   // --------------------
 
-  _renderLetter (letter, rate, textProps) {
+  renderLetter (letter, rate, textProps) {
     const s = this
     let { props } = s
 
@@ -118,16 +94,16 @@ const ApCaptchaSvg = React.createClass({
             y={ parseInt(y) }
             fontSize={ parseInt(fontSize) }
             transform={ `translate(${move()}, ${move()}) rotate(${parseInt(rotate)}, ${parseInt(x)}, ${parseInt(y)})` }
-        {...textProps}
+            {...textProps}
       >{ letter }</text>
     )
-  },
+  }
 
   _dummyLetter () {
     const letters = '1234567890abcdefg'
     let len = letters.length
     return letters[ randomval.randomInt(0, len - 1) ]
-  },
+  }
 
   _stripeBlock (rate, color, blockProps) {
     const s = this
@@ -149,7 +125,6 @@ const ApCaptchaSvg = React.createClass({
               y1={parseInt(0)}
               x2={parseInt(x)}
               y2={parseInt(h)}
-              lineWidth={parseInt(lineWidth)}
               key={`line-${x}`}
               stroke={color}
         />
@@ -158,13 +133,33 @@ const ApCaptchaSvg = React.createClass({
 
     return (
       <svg { ...blockProps }>
-        <g transform={`scale(1.3) rotate(${parseInt(rotate)}, ${parseInt(blockProps.width / 2)}, ${parseInt(blockProps.height / 2)})`}>
+        <g
+          transform={`scale(1.3) rotate(${parseInt(rotate)}, ${parseInt(blockProps.width / 2)}, ${parseInt(blockProps.height / 2)})`}>
           { lines }
         </g>
       </svg>
     )
   }
+}
+Object.assign(ApCaptchaSvg, {
+  // --------------------
+  // Specs
+  // --------------------
 
+  propsTypes: {
+    version: types.string,
+    text: types.string.isRequired,
+    width: types.number,
+    height: types.number
+  },
+
+  defaultProps: {
+    version: '1.1',
+    xmlns: 'http://www.w3.org/2000/svg',
+    text: '',
+    width: 256,
+    height: 92
+  }
 })
 
 export default ApCaptchaSvg

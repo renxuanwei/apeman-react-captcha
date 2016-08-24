@@ -7,7 +7,8 @@
 import ApCaptchaSvg from '../lib/ap_captcha_svg'
 import React from 'react'
 import assert from 'assert'
-import { shallow } from 'enzyme'
+import {shallow} from 'enzyme'
+import writeout from '../writeout'
 
 describe('ap-captcha-svg', () => {
   before(() => {
@@ -16,11 +17,16 @@ describe('ap-captcha-svg', () => {
   after(() => {
   })
 
-  it('Render a component', () => {
+  it('Render a component', (done) => {
     let element = shallow(
       <ApCaptchaSvg text='hoge'/>
     )
     assert.ok(element)
+
+    writeout(
+      `${__dirname}/../tmp/foo/bar.json`,
+      { count: 10 }
+    ).then(() => done())
   })
 })
 

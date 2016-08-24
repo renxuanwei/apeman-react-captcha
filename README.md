@@ -143,7 +143,6 @@ Components
 
 | Name | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
-| style | object | {} | |  |
 
 ### ApCaptchaSvg
 
@@ -151,11 +150,6 @@ Components
 
 | Name | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
-| version |  | &#x27;1.1&#x27; | |  |
-| xmlns |  | &#x27;http://www.w3.org/2000/svg&#x27; | |  |
-| text |  | &#x27;&#x27; | |  |
-| width |  | 256 | |  |
-| height |  | 92 | |  |
 
 ### ApCaptcha
 
@@ -163,16 +157,6 @@ Components
 
 | Name | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
-| src | string | null | | Image source url |
-| onRefresh | func | null | | Handler for refresh |
-| refreshIcon | string | &#x27;fa fa-refresh&#x27; | |  |
-| refreshText | string | &#x27;&#x27; | |  |
-| imageWidth | number | 240 | |  |
-| imageHeight | number | 94 | |  |
-| onImageLoad | func | null | |  |
-| onImageError | func | null | |  |
-| spinning | bool | false | |  |
-| spinnerTheme | string | ApSpinner.DEFAULT_THEME | |  |
 
 
 <!-- Section from "doc/guides/04.Components.md.hbs" End -->
