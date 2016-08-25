@@ -29,21 +29,22 @@ class ApCaptcha extends Component {
       <div className={ classnames('ap-captcha', props.className)}
            style={Object.assign({}, props.style) }>
         <div>
-          <ApSpinner className="ap-captcha-spinner"
+          <ApSpinner className='ap-captcha-spinner'
                      enabled={ props.spinning }
                      theme={ props.spinnerTheme }
           />
-          <ApImage className="ap-captcha-image"
+          <ApImage className='ap-captcha-image'
+                   scale='fit'
                    src={ props.src }
                    width={ props.imageWidth }
                    height={ props.imageHeight }
                    onLoad={ s.handleImageLoad }
                    onError={ s.handleImageError }
-                   alt=""
+                   alt=''
           />
         </div>
         <div>
-          <a className="ap-captcha-refresh-button">
+          <a className='ap-captcha-refresh-button'>
             <ApTouchable onTap={ s.handleTap }>
                     <span>
                         <ApIcon className={ classnames('ap-captcha-refresh-icon', props.refreshIcon, {

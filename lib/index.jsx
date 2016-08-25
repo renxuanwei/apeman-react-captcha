@@ -1,7 +1,7 @@
 /**
  * apeman react package for captcha component.
  * @module apeman-react-captcha
- * @version 3.1.0
+ * @version 3.1.1
  */
 'use strict'
 
