@@ -7,8 +7,10 @@
 
 'use strict'
 
-import React, {Component, PropTypes as types} from 'react'
-import randomval from 'randomval'
+import React, { Component, PropTypes as types } from 'react'
+import randomval, { randomInt } from 'randomval'
+
+let dummyLetter = (letters = '1234567890abcdefg') => letters[ randomInt(0, letters.length - 1) ]
 
 /** @lends ApCaptchaSvg */
 class ApCaptchaSvg extends Component {
@@ -23,31 +25,40 @@ class ApCaptchaSvg extends Component {
     let backgrounds = [ 0, 1, 2, 3 ].map((val, i, { length }) => {
       let margin = width * 0.2
       let rate = (i + 0.5) / length
-      return s._stripeBlock(rate, color, {
-        key: `bg-${i}`,
-        width: parseInt(width / length + (margin * 2)),
-        height: parseInt(height + (margin * 2)),
-        x: parseInt(width * rate - margin),
-        y: parseInt(0 - margin)
-      })
+      return (
+        <ApCaptchaSvg.StripeBlock rate={ rate }
+                                  color={ color }
+                                  blockProps={ {
+                                    key: `bg-${i}`,
+                                    width: parseInt(width / length + (margin * 2)),
+                                    height: parseInt(height + (margin * 2)),
+                                    x: parseInt(width * rate - margin),
+                                    y: parseInt(0 - margin)
+                                  } }
+        />
+      )
     })
 
     let texts = props.text.split('').map((letter, i, letters) => {
       let indices = [ 0, 1, 2, 3, 4, 5 ]
-      let real = randomval.randomInt(0, indices.length - 1)
+      let real = randomInt(0, indices.length - 1)
       let texts = indices.map((j) => {
         let rate = i / letters.length
         let key = `letter-${i}-${j}`
         if (j === real) {
-          return s.renderLetter(letter, rate, {
-            key: key,
-            fill: color
-          })
+          return (
+            <ApCaptchaSvg.Letter letter={ letter }
+                                 rate={ rate }
+                                 textProps={ { key, fill: color } }
+            />
+          )
         } else {
-          return s.renderLetter(s._dummyLetter(), rate, {
-            key: key,
-            fill: `rgba(255,255,255,${0.01 * randomval.randomInt(0, 30)})`
-          })
+          return (
+            <ApCaptchaSvg.Letter letter={ dummyLetter() }
+                                 rate={ rate }
+                                 textProps={ { key, fill: `rgba(255,255,255,${0.01 * randomInt(0, 30)})` } }
+            />
+          )
         }
       })
       return (
@@ -67,11 +78,7 @@ class ApCaptchaSvg extends Component {
     )
   }
 
-  // --------------------
-  // Specs
-  // --------------------
-
-  renderLetter (letter, rate, textProps) {
+  static Letter ({ letter, rate, textProps }) {
     const s = this
     let { props } = s
 
@@ -81,13 +88,13 @@ class ApCaptchaSvg extends Component {
     let h = props.height
 
     let moveRange = h / 20
-    let move = randomval.randomInt.bind(randomval, moveRange * -1, moveRange)
+    let move = randomInt.bind(randomval, moveRange * -1, moveRange)
 
     let fontSize = h * 0.8
     let x = padding + w * rate + (fontSize / 4)
     let y = fontSize
     let rotateRange = 40
-    let rotate = randomval.randomInt(-rotateRange, rotateRange)
+    let rotate = randomInt(-rotateRange, rotateRange)
 
     return (
       <text x={ parseInt(x) }
@@ -99,17 +106,8 @@ class ApCaptchaSvg extends Component {
     )
   }
 
-  _dummyLetter () {
-    const letters = '1234567890abcdefg'
-    let len = letters.length
-    return letters[ randomval.randomInt(0, len - 1) ]
-  }
-
-  _stripeBlock (rate, color, blockProps) {
-    const s = this
-    let { props } = s
-
-    let rotate = randomval.randomInt(-90, 90)
+  static StripeBlock ({ rate, color, blockProps }) {
+    let rotate = randomInt(-90, 90)
 
     let lines = []
     let lineWidth = 1
