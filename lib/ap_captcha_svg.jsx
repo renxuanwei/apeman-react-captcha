@@ -27,6 +27,7 @@ class ApCaptchaSvg extends Component {
       let rate = (i + 0.5) / length
       return (
         <ApCaptchaSvg.StripeBlock rate={ rate }
+                                  key={ `${i}-${val}` }
                                   color={ color }
                                   blockProps={ {
                                     key: `bg-${i}`,
@@ -45,21 +46,19 @@ class ApCaptchaSvg extends Component {
       let texts = indices.map((j) => {
         let rate = i / letters.length
         let key = `letter-${i}-${j}`
-        if (j === real) {
-          return (
-            <ApCaptchaSvg.Letter letter={ letter }
-                                 rate={ rate }
-                                 textProps={ { key, fill: color } }
-            />
-          )
-        } else {
-          return (
-            <ApCaptchaSvg.Letter letter={ dummyLetter() }
-                                 rate={ rate }
-                                 textProps={ { key, fill: `rgba(255,255,255,${0.01 * randomInt(0, 30)})` } }
-            />
-          )
-        }
+        let isReal = j === real
+        return (
+          <ApCaptchaSvg.Letter letter={ isReal ? letter : dummyLetter() }
+                               rate={ rate }
+                               width={ width }
+                               height={ height }
+                               textProps={ {
+                                 key,
+                                 fill: isReal ? color : `rgba(255,255,255,${0.01 * randomInt(0, 30)})`
+                               } }
+                               key={ `${i}-${j}-${letter}` }
+          />
+        )
       })
       return (
         <g key={`letter-group-${i}`}>{ texts }</g>
@@ -78,14 +77,11 @@ class ApCaptchaSvg extends Component {
     )
   }
 
-  static Letter ({ letter, rate, textProps }) {
-    const s = this
-    let { props } = s
-
+  static Letter ({ letter, rate, width, height, textProps }) {
     let padding = 16
 
-    let w = props.width - (padding * 2)
-    let h = props.height
+    let w = width - (padding * 2)
+    let h = height
 
     let moveRange = h / 20
     let move = randomInt.bind(randomval, moveRange * -1, moveRange)
@@ -95,7 +91,6 @@ class ApCaptchaSvg extends Component {
     let y = fontSize
     let rotateRange = 40
     let rotate = randomInt(-rotateRange, rotateRange)
-
     return (
       <text x={ parseInt(x) }
             y={ parseInt(y) }
