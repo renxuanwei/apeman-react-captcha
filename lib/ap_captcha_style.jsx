@@ -5,8 +5,8 @@
 
 'use strict'
 
-import React, {Component, PropTypes as types} from 'react'
-import {ApStyle} from 'apeman-react-style'
+import React, { Component, PropTypes as types } from 'react'
+import { ApStyle } from 'apeman-react-style'
 
 /** @lends ApCaptchaStyle */
 class ApCaptchaStyle extends Component {
@@ -26,7 +26,7 @@ class ApCaptchaStyle extends Component {
   }
 }
 
-Object.assign(Component, {
+Object.assign(ApCaptchaStyle, {
   propTypes: {
     style: types.object
   },
